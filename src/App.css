@@ -1,24 +1,51 @@
-
-
-/* .cc{
- 
-    padding-left: 10cm;
-} */
-/* .vl {
-  border-left: 6px solid green;
-  height: 500px;
-  position: absolute;
-  left: 50%;
-  margin-left: -3px;
-  top: 0;
-} */
-.left{ 
-  margin-top: 1.5rem;
-  margin-left: 37rem;    
+.navbar-brand {
+  font-weight: bold;
+  margin-left: 1.8rem;
 }
-.Dropdown{
-  /* display: none;
-  position: absolute; */
-  background-color: #f9f9f9;
-padding-left: 70rem; 
+
+.legends {
+  background-color: rgba(166, 219, 166, 0.78);
+  display: inline-flex;
+  padding: 0 5px;
+  margin: 0 5px;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+.color {
+  height: 15px;
+  width: 15px;
+  margin-right: 5px;
+
+}
+
+.label {
+  font-size: 90%
+}
+
+.legend {
+  width: 20px;
+  height: 20px;
+  margin: 3px 5px;
+  cursor: pointer;
+}
+
+.recipe-color {
+  background-color: #f298a1;
+}
+
+.step-color {
+  background-color: rgb(188 191 238);
+}
+
+.activity-color {
+  background-color: rgb(148 233 170);
+}
+
+.parameter-color {
+  background-color: #ffdb6f;
+}
+.form-select{
+  cursor: pointer;
+
 }

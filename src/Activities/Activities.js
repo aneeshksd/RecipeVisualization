@@ -1,35 +1,69 @@
-import React from 'react'
-import response from './../../src/response.json';
-import 'bootstrap/dist/css/bootstrap.css';
-import './Activities.css'
-export default function Activities() {
+import React, { useEffect, useState } from "react";
+import "bootstrap/dist/css/bootstrap.css";
+import Parameter from "../Parameters/parameter";
+import "./Activities.css";
+
+export default function Activities(steps) {
+  const [parameter, setParameterList] = useState();
+  const onActivityClick = (i) => {
+    setParameterList([...steps.steps[i].valueObj.parameters]);
+  };
+
+  useEffect(() => {}, [steps]);
+
+  useEffect(() => {}, [parameter]);
+
   return (
-    <div className='App'>
-    {response?.data?.recipe?.values[0]?.values[1]?.valueObj?.activities.map((i) => {
-        return (
-          <div className='left'>
-            <h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#8595;</h1>
-            <svg width="330" height="200">
-              <rect
-             x="0"
-             y="0"
-             width="330"
-             height="200"
-             stroke="#00FFFF"
-             stroke-width="4px"
-             fill="blue"
-           />
-              {/* <text x="20%" y="20%" fill="white">{i?.name}</text> */}
-              <text x="50%" y="30%" dominant-baseline="middle" fill="white" text-anchor="middle">Type:{i.type}</text>
-              <text x="50%" y="50%" dominant-baseline="middle" fill="white" text-anchor="middle">ActivityName:{i.name}</text>
-              <text x="50%" y="70%" dominant-baseline="middle" fill="white" text-anchor="middle">Order{i._order}</text>
-              {/* <text x="20%" y="60%" fill="white">{response.data.recipe.value}</text> */}
-            </svg>
-          </div>
-        )
-
-      })}
-
+    <div className="activity_css">
+      <div style={{ width: "28%" }}>
+        {steps &&
+          steps?.steps?.map((processItem, processIndex) => {
+            return (
+              <>
+                <svg
+                  className="arrow_down"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M12 24l-8-9h6v-15h4v15h6z" />
+                </svg>
+                <>
+                  <div>
+                    <svg
+                      height="80"
+                      onClick={(e) => onActivityClick(processIndex)}
+                    >
+                      {console.log(processIndex)}
+                      <rect
+                        x="0"
+                        y="0"
+                        height="80"
+                        width={"100%"}
+                        className="activity-color"
+                        stroke="white"
+                        stroke-width="8px"
+                      />
+                      <text
+                        x="50%"
+                        y="50%"
+                        dominant-baseline="middle"
+                        fill="black"
+                        fontWeight="bold"
+                        text-anchor="middle"
+                      >
+                        {processItem?.name}
+                      </text>
+                    </svg>
+                  </div>
+                </>
+                <br></br>
+              </>
+            );
+          })}
+      </div>
+      {parameter && <Parameter ActivityList={parameter} />}
     </div>
-  )
+  );
 }

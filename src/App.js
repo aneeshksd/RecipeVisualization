@@ -1,39 +1,64 @@
-import React, { useState } from "react";
-//import response from './response.json';
-// import Row from 'react-bootstrap/Row';
-// import Col from 'react-bootstrap/Col';
-// import Dropdown from "react-bootstrap/Dropdown";
-// import DropdownButton from "react-bootstrap/DropdownButton";
+import React, { useEffect, useState } from "react";
+import "bootstrap/dist/css/bootstrap.css";
 import "./App.css";
 import Recipe from "./recipe/recipe";
-import Step from "./Steps/Step";
-import Activities from "./Activities/Activities";
+import RecipeList from "./recipeList.json";
 
 export default function App() {
-  const [selectedKey, setSelectedKey] = useState("");
-  const selectDropDown = (e) => {
-    setSelectedKey(e.target.value);
+  // declare all variables
+  const [selectedRecipe, setSelectedRecipe] = useState("");
+  const [recipeList, setRecipeList] = useState([]);
+  const bg_color = {
+    backgroundColor: "#e3f2fd",
   };
+
+  // define useEffect/Hooks
+  useEffect(() => {
+    if (RecipeList && RecipeList.data && RecipeList.data.recipeList) {
+      setRecipeList(RecipeList.data.recipeList);
+    }
+  }, []); // load on the inital time
+
+  useEffect(() => {}, [selectedRecipe]);
+
+  // define function
+  const onRecipeDropDownChange = (e) => {
+    setSelectedRecipe(e.target.value);
+  };
+
   return (
-    
     <div className="App">
-      <div className="Dropdown">
-        {/* <DropdownButton id="dropdown-basic-button" title="data" onClick={(e) => selectDropDown(e)}>
-          <Dropdown.Item href="/Activities.js" key="recipe">recipe</Dropdown.Item>
-          <Dropdown.Item href="#/action-2" key="step">step</Dropdown.Item>
-          <Dropdown.Item href="#/action-3" key="activities">activities</Dropdown.Item>
-        </DropdownButton> */}
-        <select class="form-select" onClick={(e) => selectDropDown(e)}>
-          <option key="recipe">Recipe</option>
-          <option key="step">Step</option>
-          <option key="activities">Activities</option>
-        </select>
+      <nav className="navbar navbar-light" style={bg_color}>
+        <a className="navbar-brand">Recipe Visualization</a>
+      </nav>
+      <div className="row p-4">
+        <div className="col">
+          <select
+            className="form-select w-50"
+            onChange={(e) => onRecipeDropDownChange(e)}
+          >
+            <option value="">Select Recipe</option>
+            {recipeList &&
+              recipeList.map((item) => {
+                return <option value={item.value}>{item.label}</option>;
+              })}
+          </select>
         </div>
-        {selectedKey === "Recipe" && <Recipe />}
-        {selectedKey === "Step" && <Step />}
-        {selectedKey === "Activities" && <Activities />}
-        {/* <Activities /> */}
-      
+        <div className="col">
+          <div className="d-flex">
+            <div className="legend recipe-color"></div>
+            <p className="rep me-2"> Recipe</p>
+            <div className="legend step-color"></div>
+            <p className="rep me-2"> Steps</p>
+            <div className="legend activity-color"></div>
+            <p className="rep me-2">Activities</p>
+            <div className="legend parameter-color"></div>
+            <p className="rep me-2">Parameter</p>
+          </div>
+        </div>
+      </div>
+
+      {selectedRecipe && <Recipe recipeId={selectedRecipe} />}
     </div>
   );
 }

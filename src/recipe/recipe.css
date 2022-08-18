@@ -1,5 +1,12 @@
-.left{ 
-    margin-top: 1.5rem;
-    margin-left: 37rem;    
-  }
-  
+
+.recipe {
+  margin-left: 1.5rem;
+}
+
+.recipe {
+  cursor: pointer;
+}
+
+.recipe_arrow_down {
+  margin-left: 10rem;
+}

@@ -1,8 +1,8 @@
 {
   "data": {
-    "recipeId": "recipe_09d4160bc4f6434aaa5ec28baedba9be",
+    "recipeId": "recipe_2",
     "recipe": {
-      "name": "Fluxamab Demo SR",
+      "name": "Recipe 2",
       "type": "Recipe",
       "approvalInfo": {
         "state": "In-Draft",
@@ -13,7 +13,7 @@
       "ref_metadata": [
         {
           "name": "Recipe Name",
-          "value": "Fluxamab Demo SR"
+          "value": "Fluxamab Demo SR 2"
         },
         {
           "name": "Description",
@@ -98,7 +98,7 @@
           ],
           "values": [
             {
-              "name": "Thaw",
+              "name": "Thaw 2",
               "type": "Step",
               "_order": 1,
               "approvalInfo": {
@@ -791,7 +791,7 @@
               }
             },
             {
-              "name": "Shake",
+              "name": "Shake 2",
               "type": "Step",
               "_order": 2,
               "approvalInfo": {
@@ -2896,7 +2896,7 @@
           ],
           "values": [
             {
-              "name": "N-2 Inoculum Fermentation",
+              "name": "N-2 Inoculum Fermentation 2",
               "type": "Step",
               "_order": 3,
               "approvalInfo": {
@@ -5060,7 +5060,7 @@
               }
             },
             {
-              "name": "N-1 Inoculum Fermentation",
+              "name": "N-1 Inoculum Fermentation 2",
               "type": "Step",
               "_order": 4,
               "approvalInfo": {
@@ -7497,7 +7497,7 @@
               }
             },
             {
-              "name": "2000L Bioreactor",
+              "name": "2000L Bioreactor 2",
               "type": "Step",
               "_order": 5,
               "approvalInfo": {
@@ -12018,7 +12018,7 @@
           ],
           "values": [
             {
-              "name": "Viral Inactivation",
+              "name": "Viral Inactivation 2",
               "type": "Step",
               "_order": 6,
               "approvalInfo": {
@@ -14679,7 +14679,7 @@
               }
             },
             {
-              "name": "Protein A Chromatography",
+              "name": "Protein A Chromatography 2",
               "type": "Step",
               "_order": 7,
               "approvalInfo": {
@@ -14750,7 +14750,7 @@
               }
             },
             {
-              "name": "CEX",
+              "name": "CEX 2",
               "type": "Step",
               "_order": 8,
               "approvalInfo": {
@@ -14821,7 +14821,7 @@
               }
             },
             {
-              "name": "Viral Filtration",
+              "name": "Viral Filtration 2",
               "type": "Step",
               "_order": 9,
               "approvalInfo": {
@@ -17921,7 +17921,7 @@
               }
             },
             {
-              "name": "Ultrafiltration/ Diafiltration",
+              "name": "Ultrafiltration/ Diafiltration 2",
               "type": "Step",
               "_order": 10,
               "approvalInfo": {
@@ -17992,7 +17992,7 @@
               }
             },
             {
-              "name": "Release Testing",
+              "name": "Release Testing 2",
               "type": "Step",
               "_order": 11,
               "approvalInfo": {

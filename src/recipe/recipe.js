@@ -1,32 +1,76 @@
-import React from 'react'
-import response from '../response.json';
-import 'bootstrap/dist/css/bootstrap.css';
-import './recipe.css'
+import React, { useEffect, useState } from "react";
+import recipe_1 from "../recipe_1.json";
+import recipe_2 from "../recipe_2.json";
+import recipe_3 from "../recipe_3.json";
+import "bootstrap/dist/css/bootstrap.css";
+import "./recipe.css";
+import Step from "../Steps/Step";
 
-export default function Recipe() {
+export default function Recipe({ recipeId }) {
+  const [selectedRecipeId, setSelectedRecipeId] = useState();
+  const [recipeDetails, setRecipeDetails] = useState();
+
+  useEffect(() => {
+    if (recipeId !== selectedRecipeId) {
+      setSelectedRecipeId(recipeId);
+      // call api to get the recipe details
+      loadRecipeData(recipeId);
+    }
+  }, [recipeId]);
+
+  const loadRecipeData = (recipeId) => {
+    switch (recipeId) {
+      case "recipe_1":
+        setRecipeDetails({ ...recipe_1.data.recipe });
+        break;
+      case "recipe_2":
+        setRecipeDetails({ ...recipe_2.data.recipe });
+        break;
+      case "recipe_3":
+        setRecipeDetails({ ...recipe_3.data.recipe });
+        break;
+    }
+  };
+
   return (
-
-    <div className='App'>
-    {/* {response?.data?.recipe?.values[0]?.values[1]?.valueObj?.activities.map((i) => { */}
-        {/* return ( */}
-          {/* <div> */}
-            {/* <h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#8595;</h1> */}
-            <div className='left'>
-            <svg width="220" height="140">
+    <div>
+      <div>
+        <div className="recipe">
+          {recipeDetails && (
+            <svg width="300px" height="80">
               <rect
-             x="0"
-             y="0"
-             width="330"
-             height="200"
-             stroke="#00FFFF"
-             stroke-width="4px"
-             fill="#ff704d"
-           />
-              <text x="50%" y="30%" dominant-baseline="middle" fill="black" text-anchor="middle">Type:{response.data.recipe.type}</text>
-              <text x="50%" y="50%" dominant-baseline="middle" fill="black" text-anchor="middle">Name:{response.data.recipe.name}</text>
-
+                x="0"
+                y="0"
+                width="100%"
+                height="80px"
+                fill="#f298a1"
+                stroke="white"
+                stroke-width="8px"
+              />
+              <text
+                x="50%"
+                y="50%"
+                dominant-baseline="middle"
+                fill="black"
+                text-anchor="middle"
+                fontWeight="bold"
+              >
+                {recipeDetails?.name}
+              </text>
             </svg>
-            </div>
+          )}
+        </div>
+        <svg
+          className="recipe_arrow_down"
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+        >
+          <path d="M12 24l-8-9h6v-15h4v15h6z" />
+        </svg>
+      </div>
+      {recipeDetails && <Step recipeData={recipeDetails} />}
     </div>
-  )
+  );
 }

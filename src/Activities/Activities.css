@@ -1,4 +1,22 @@
-.left{ 
-    margin-top: 1.5rem;
-    margin-left: 37rem;    
-  }
+
+.sample {
+  padding-left: 1rem;
+}
+
+.activity-color {
+  fill: rgb(148 233 170);
+}
+
+.activity_css{
+  display: flex;
+}
+.arrow_down {
+  margin-left: 8rem;
+
+}
+
+.activity_css {
+  margin-top: 5rem;
+  margin-left: 1.5rem;
+  cursor: pointer;
+}

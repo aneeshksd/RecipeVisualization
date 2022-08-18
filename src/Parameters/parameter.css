@@ -1,0 +1,17 @@
+.right_arrow {
+  margin-left: 19rem;
+}
+
+.parameter-color {
+  fill: #ffdb6f;
+}
+
+.parameter{
+  overflow-x: scroll;
+  display: flex;
+  margin-top: 10rem;
+  width:100%;
+  margin-left: 20px;
+  cursor: pointer;
+}
+
